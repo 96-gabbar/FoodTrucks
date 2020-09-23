@@ -14,5 +14,14 @@ RestAPI Details:
 					Example : {"latitude": "37","longitude": "-122"}
 	Produces	: HTTP Response Entity which contains the desired output(Set of food items available nearby the given location), along with HTTP Status.
 	
+
+Solution Design:
+
+There is a service which is scheduled, and will call the API to get data.
+
+Once the data is available, we will store it in cache and we can keep updating the cache at some time interval.
+
+When the Rest API is called, we will loop over all the data available, to find out which all types of food is available	nearby the given location.
+
 	
-The RestAPI has been deployed using AWS EC2.
+The RestAPI Java Application has been deployed using AWS EC2.
