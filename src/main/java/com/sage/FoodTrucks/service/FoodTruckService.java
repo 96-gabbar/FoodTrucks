@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.sage.FoodTrucks.pojo.Response;
 import com.sage.FoodTrucks.utilities.DataCache;
@@ -18,6 +19,9 @@ public class FoodTruckService {
 	
 	Logger LOGGER = (Logger) LoggerFactory.getLogger(FoodTruckService.class);
 	
+	@Value("${foodTruck.distance.radius}")
+	String distanceRadius;
+	
 	@Autowired
 	DataCache cache;
 	
@@ -28,7 +32,7 @@ public class FoodTruckService {
 		
 		Set<String> typeOfFoodAvailable = new HashSet<>();
 		
-		double uptoDistance = 10000d;
+		double uptoDistance = Double.valueOf(distanceRadius);
 		
 		if(null==cache.getCache() || null==cache.getCache().getRow()) {
 			LOGGER.info("Cache for dataAPI is empty, hence enriching cache");
