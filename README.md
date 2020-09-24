@@ -9,6 +9,7 @@ This solution focuses only on back-end track.
 
 Hence, RestAPI has been written.
 RestAPI Details:
+        Request Type    : HTTP GET
 	Name 		: /nearestFoodTruckTypes
 	Consumes 	: JSON Body, with 2 parameters namely Latitude and Longitude with their values in key-value pair.
 					Example : {"latitude": "37","longitude": "-122"}
